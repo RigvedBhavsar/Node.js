@@ -5,9 +5,14 @@ class User{
     constructor(userData){
         this.userData= {...userData}
     };
-    save(){
-        dbCon('users',(db)=>{
-            db.insertOne(this.userData);
+    save(cb){
+        dbCon('users',async(db)=>{
+            try{
+                db.insertOne(this.userData);
+                cb();
+            }catch(err){
+                cb(err);
+            }
         });
     }
 
@@ -46,12 +51,20 @@ class User{
     };
 };
 
-const userData = {
-    username : "rigved",
-    email :"rigved.com",
-    password : "Rigved@1234",
-    first_name :"rigved",
-    last_name: "bhavsar"
-};
+// const userData = {
+//     username : "rigved",
+//     email :"rigved.com",
+//     password : "Rigved@1234",
+//     first_name :"rigved",
+//     last_name: "bhavsar"
+// };
 
-const validation = User.validate(userData);
+// const validation = User.validate(userData);
+
+// user.checkExistance()
+// .then(check=>{
+//     console.log(check);
+// })
+// .catch(err=>console.log(err));
+
+module.exports=User;

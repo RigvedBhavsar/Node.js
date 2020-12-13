@@ -55,3 +55,25 @@
 {"message":"combine\n","level":"info"}
 {"message":"Not Found","level":"error"}
 {"message":"combine\n","level":"info"}
+{"message":"combine\n","level":"info"}
+{"message":"\"username\" is required","level":"error"}
+{"message":"combine\n","level":"info"}
+{"message":"\"username\" must only contain alpha-numeric characters","level":"error"}
+{"message":"combine\n","level":"info"}
+{"message":"\"email\" is required","level":"error"}
+{"message":"combine\n","level":"info"}
+{"message":"your password must have least 8 character and contains 1 upppercase ,1 lowercase, 1 Number and 1 special symbol ","level":"error"}
+{"message":"combine\n","level":"info"}
+{"message":"Not Found","level":"error"}
+{"message":"combine\n","level":"info"}
+{"code":"ESERVFAIL","syscall":"querySrv","hostname":"_mongodb._tcp.sampledata.wcbxv.mongodb.net","level":"error"}
+{"code":"ESERVFAIL","syscall":"querySrv","hostname":"_mongodb._tcp.sampledata.wcbxv.mongodb.net","level":"error"}
+{"code":"ESERVFAIL","syscall":"querySrv","hostname":"_mongodb._tcp.sampledata.wcbxv.mongodb.net","level":"error"}
+{"code":"ESERVFAIL","syscall":"querySrv","hostname":"_mongodb._tcp.sampledata.wcbxv.mongodb.net","level":"error"}
+{"code":"ESERVFAIL","syscall":"querySrv","hostname":"_mongodb._tcp.sampledata.wcbxv.mongodb.net","level":"error"}
+{"code":"ESERVFAIL","syscall":"querySrv","hostname":"_mongodb._tcp.sampledata.wcbxv.mongodb.net","level":"error"}
+{"message":"combine\n","level":"info"}
+{"message":"this username is already taken","level":"error"}
+{"message":"combine\n","level":"info"}
+{"message":"this email is already taken","level":"error"}
+{"message":"combine\n","level":"info"}

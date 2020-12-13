@@ -1,5 +1,5 @@
 const {Router} = require('express');
-const {getLogin} = require('../controllers/auth');
+const {getLogin , postSignup} = require('../controllers/auth');
 
 const router = Router();
 
@@ -7,6 +7,6 @@ router
 .get('/login',getLogin)
 .post('/login')
 .get('/signup')
-.post('/signup')
+.post('/signup',postSignup)
 
 module.exports = router;
