@@ -1,6 +1,7 @@
-const { equal } = require('@hapi/joi');
 const { dbCon } = require ('../configuration');
-const {userValidator} = require('../validator');
+const {userValidator , logSchema} = require('../validator');
+const {hashSync , compareSync} = require('bcryptjs')
+
 class User{
     constructor(userData){
         this.userData= {...userData}
@@ -8,6 +9,8 @@ class User{
     save(cb){
         dbCon('users',async(db)=>{
             try{
+                const hashedPass = hashSync(this.userData['password'],12);
+                this.userData['password']=hashedPass;
                 db.insertOne(this.userData);
                 cb();
             }catch(err){
@@ -49,7 +52,46 @@ class User{
     static validate(userData){
         return  userValidator.validate(userData);
     };
+
+    //Validation
+    static login(userData){
+        return new Promise((resolve , reject)=>{
+            const validation = logSchema.validate(userData);
+            if(validation.error){
+                const error = new Error(validation.error.message);
+                error.statusCode = 400;
+                return resolve(error);
+            }
+            dbCon('users',async(db)=>{
+                try{
+                    //Find User in Database
+                    const user = await db.findOne({'$or':[{username : userData['username']},
+                {email : userData['username']}]});
+
+                if(!user || !compareSync(userData['password'],user.password)){
+                    const error = new Error("Please Enter valid username and password");
+                    error.statusCode =404;
+                    return resolve(error);
+                }
+
+                resolve(user);
+
+                }catch(err){
+                    reject(err);
+                }
+            });
+        });
+    };
 };
+
+// User.login({
+//     username : 'ved',
+//     password : 'Ved@1234'
+// })
+// .then(res =>{
+//     console.log(res);
+// })
+
 
 // const userData = {
 //     username : "rigved",

@@ -11,4 +11,9 @@ const schema = new joi.object({
     last_name : joi.string().required()
 });
 
-module.exports = schema;
+const logSchema = joi.object({
+    username : joi.string().required(),
+    password : joi.string().required()
+})
+
+module.exports = {schema,logSchema};
