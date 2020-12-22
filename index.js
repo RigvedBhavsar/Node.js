@@ -1,8 +1,9 @@
+require('dotenv').config();
 const http = require('http');
 const app = require('./app');
 
 const server = http.createServer(app);
 
-server.listen('5000', ()=>{
-    console.log('Server Started on Port 5000');
+server.listen(process.env.PORT, ()=>{
+    console.log(`Server Started on Port ${process.env.PORT}`);
 });

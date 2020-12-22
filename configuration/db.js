@@ -1,6 +1,6 @@
 const {MongoClient} = require('mongodb');
 
-const _url ="mongodb+srv://admin:admin@sampledata.wcbxv.mongodb.net/sample_mflix?retryWrites=true&w=majority"
+const _url =process.env.MONGODB_URL;
 
 const dbCon = (coll , cb)=>{
     MongoClient.connect(_url)

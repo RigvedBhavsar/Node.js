@@ -1,6 +1,6 @@
 const express = require ('express');
 
-const middleware = require('./middleware')
+const {middleware} = require('./middleware')
 
 const routes = require('./routes')
 
